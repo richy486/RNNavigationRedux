@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-
-import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,16 +24,8 @@ const HomeScreen = ({ navigation, dispatch }) => (
   </View>
 );
 
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
-
 HomeScreen.navigationOptions = {
   title: 'Home',
 };
 
-const mapStateToProps = state => ({
-});
-
-export default connect(mapStateToProps)(HomeScreen);
+export default HomeScreen;
