@@ -25,13 +25,11 @@ const MainScreen = ({ counter, dispatch }) => (
     <Button
       onPress={() =>
         dispatch({ type: 'Increase' })}
-      title="Increase"
-    />
+      title="Increase"/>
     <Button
       onPress={() =>
         dispatch({ type: 'Decrease' })}
-      title="Decrease"
-    />
+      title="Decrease"/>
   </View>
 );
 

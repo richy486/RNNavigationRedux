@@ -41,9 +41,11 @@ const loggedOutAuthState = { isLoggedIn: false, username: "n/a" };
 function auth(state = loggedOutAuthState, action) {
   switch (action.type) {
     case 'Login':
+      console.log("### Log ININ")
       return { ...state, isLoggedIn: true, username: "batman" };
     case 'Logout':
-      return { ...state, loggedOutAuthState };
+      console.log("### Log out")
+      return { ...state, isLoggedIn: false, username: "---" };
     default:
       return state;
   }
