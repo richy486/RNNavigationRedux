@@ -5,6 +5,7 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 import HomeScreen from '../components/HomeScreen';
 import LoginScreen from '../components/LoginScreen';
+import ForgotPasswordScreen from '../components/ForgotPasswordScreen';
 import MainScreen from '../components/MainScreen';
 import ProfileScreen from '../components/ProfileScreen';
 
@@ -15,23 +16,18 @@ export const MainNavigator = StackNavigator(
   }
 );
 
-// export const ProfileNavigator = StackNavigator(
-//   {
-//     Profile: { screen: ProfileScreen },
-//   },
-//   {
-//     mode: 'card',
-//     headerMode: 'float',
-//   }
-// );
+export const LoginNavigator = StackNavigator(
+  {
+    Login: { screen: LoginScreen },
+    ForgotPassword: { screen: ForgotPasswordScreen },
+  }
+);
 
 export const AppNavigator = StackNavigator(
   {
     Home: { screen: HomeScreen },
     Main: { screen: MainNavigator },
-    // Main: { screen: MainScreen },
-    Login: { screen: LoginScreen },
-    // Profile: { screen: ProfileNavigator },
+    Login: { screen: LoginNavigator },
   },
   {
     mode: 'modal',
