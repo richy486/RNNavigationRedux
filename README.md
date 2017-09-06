@@ -35,6 +35,20 @@ react-native run-android
 react-native log-ios
 ```
 
+
+
 ## Notes
 
 Added `lodash` to the dependencies to [prevent an app crash](https://github.com/mhartington/cordova-config-utils/issues/18#issuecomment-259471411)
+
+## Issues
+
+or to ignore the nw_connection_get_connected_socket_block_invoke message in the log [git hub issue](https://github.com/facebook/react-native/issues/10027)
+
+log via:
+
+```shell
+react-native log-ios | grep -v nw_connection_get_connected_socket_block_invoke
+```
+
+or install and run [react-devtools](https://github.com/facebook/react-devtools/blob/master/packages/react-devtools/README.md)

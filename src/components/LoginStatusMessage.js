@@ -15,7 +15,15 @@ const styles = StyleSheet.create({
 const LoginStatusMessage = ({ isLoggedIn, dispatch, username }) => {
   if (!isLoggedIn) {
     console.log("---  show log out")
-    return <Text>Please log in</Text>;
+    return (
+      <View>
+        <Text>Please log in</Text>
+        <Button
+          onPress={() =>
+            dispatch(NavigationActions.navigate({ routeName: 'Profile' }))}
+          title="Profile"/>
+      </View>
+    );
   }
 
   console.log("---  show log INININ")
