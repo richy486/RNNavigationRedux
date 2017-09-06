@@ -49,9 +49,23 @@ function auth(state = loggedOutAuthState, action) {
   }
 }
 
+const scoreInitialState = { counter: 3 };
+
+function score(state = scoreInitialState, action) {
+  switch (action.type) {
+    case 'Increase':
+      return { ...state, counter: state.counter + 1 };
+    case 'Decrease':
+      return { ...state, counter: state.counter - 1 };
+    default:
+      return state;
+  }
+}
+
 const AppReducer = combineReducers({
   nav,
   auth,
+  score,
 });
 
 export default AppReducer;
