@@ -3,22 +3,13 @@ import { NavigationActions } from 'react-navigation';
 
 import { AppNavigator, MainNavigator } from '../navigators/AppNavigator';
 
-// Start with two routes: The Main screen, with the Login screen on top.
-
-// navigation.dispatch({ type: 'Main' })}
-        // dispatch(NavigationActions.navigate({ routeName: 'Main' }))}
-
-const firstAction = AppNavigator.router.getActionForPathAndParams('Home');
-const tempNavState = AppNavigator.router.getStateForAction(firstAction);
-const secondAction = AppNavigator.router.getActionForPathAndParams('Main');
-const initialNavState = AppNavigator.router.getStateForAction(
-  secondAction,
-  tempNavState
-);
-
-// const mainAction = AppNavigator.router.getActionForPathAndParams('Home');
-// const mainNavState = AppNavigator.router.getStateForAction(mainAction);
-// const initialNavState = mainNavState;
+// Start with two routes: The Home screen, with the Main screen on top.
+// Home is the holder to be able to display global modal screens such as the Login screen
+// Main is a tab navigator that holds another Main stack navigator in it's first tab
+const homeNavAction = AppNavigator.router.getActionForPathAndParams('Home');
+const homeNavState = AppNavigator.router.getStateForAction(homeNavAction);
+const mainNavAction = NavigationActions.navigate({ routeName: 'Main' })
+const initialNavState = AppNavigator.router.getStateForAction(mainNavAction, homeNavState);
 
 function nav(state = initialNavState, action) {
   let nextState;
@@ -35,10 +26,16 @@ function nav(state = initialNavState, action) {
         state
       );
       break;
+    case '@@redux/INIT':
+      console.log("#### INIT ####")
+      break;
     default:
+      console.log("==== default ====")
       nextState = AppNavigator.router.getStateForAction(action, state);
       break;
   }
+  console.log("Route action: ", action, ", ", state)
+  
 
   // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;

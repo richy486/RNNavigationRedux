@@ -20,8 +20,8 @@ const LoginStatusMessage = ({ isLoggedIn, dispatch, username }) => {
         <Text>Please log in</Text>
         <Button
           onPress={() =>
-            dispatch(NavigationActions.navigate({ routeName: 'Profile' }))}
-          title="Profile"/>
+            dispatch(NavigationActions.navigate({ routeName: 'Detail' }))}
+          title="Detail"/>
       </View>
     );
   }
@@ -37,8 +37,8 @@ const LoginStatusMessage = ({ isLoggedIn, dispatch, username }) => {
       </Text>
       <Button
         onPress={() =>
-          dispatch(NavigationActions.navigate({ routeName: 'Profile' }))}
-        title="Profile"
+          dispatch(NavigationActions.navigate({ routeName: 'Detail' }))}
+        title="Detail"
       />
     </View>
   );

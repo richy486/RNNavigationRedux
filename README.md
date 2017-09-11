@@ -19,7 +19,7 @@ npm install -g react-native-cli
 run with
 
 ```shell
-react-native run-ioss
+react-native run-ios
 ```
 
 or 
@@ -34,8 +34,6 @@ react-native run-android
 ```shell
 react-native log-ios
 ```
-
-
 
 ## Notes
 
