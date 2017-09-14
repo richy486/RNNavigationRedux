@@ -10,6 +10,7 @@ import MainScreen from '../components/MainScreen';
 import ProfileScreen from '../components/ProfileScreen';
 import SecondScreen from '../components/SecondScreen';
 import DetailScreen from '../components/DetailScreen';
+import SideMenuScreen from '../components/SideMenuScreen';
 
 export const MainStackNavigator = StackNavigator(
   {
@@ -46,6 +47,7 @@ export const AppNavigator = StackNavigator(
     Home: { screen: HomeScreen, },
     Main: { screen: MainTabNavigator, },
     Login: { screen: LoginNavigator },
+    SideMenu: { screen: SideMenuScreen },
   },
   {
     mode: 'modal',

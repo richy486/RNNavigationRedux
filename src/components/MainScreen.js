@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Text, Button } from 'react-native';
-
-import LoginStatusMessage from './LoginStatusMessage';
-import AuthButton from './AuthButton';
+import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,28 +15,28 @@ const styles = StyleSheet.create({
 
 const MainScreen = ({ counter, dispatch }) => (
   <View style={styles.container}>
-    <LoginStatusMessage />
-    <AuthButton />
-    <Text>
-      {counter}
-    </Text>
-    <Button
-      onPress={() =>
-        dispatch({ type: 'Increase' })}
-      title="Increase"/>
-    <Button
-      onPress={() =>
-        dispatch({ type: 'Decrease' })}
-      title="Decrease"/>
+    <FlatList
+      data={[{key: 'a'}, {key: 'b'}]}
+      renderItem={({item}) => <Text>{item.key}</Text>}/>
   </View>
 );
 
-MainScreen.navigationOptions = {
-  title: 'Main Screen',
+MainScreen.navigationOptions = props => {
+  const { navigation } = props;
+  const { dispatch } = navigation;
+  return {
+    headerTitle: 'Main Screen',
+    headerLeft: (
+      <Button
+        title='Menu'
+        onPress={() =>
+          dispatch(NavigationActions.navigate({ routeName: 'SideMenu' }))
+        }/>
+    ),
+  };
 };
 
 MainScreen.propTypes = {
-  //counter: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
