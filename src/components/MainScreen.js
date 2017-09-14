@@ -13,11 +13,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const MainScreen = ({ counter, dispatch }) => (
+const MainScreen = ({ counter, contentData, dispatch }) => (
   <View style={styles.container}>
     <FlatList
-      data={[{key: 'a'}, {key: 'b'}]}
-      renderItem={({item}) => <Text>{item.key}</Text>}/>
+      data={contentData}
+      renderItem={({ item }) => (
+            <View>
+              <Text>{item.title}</Text>
+            </View>
+          )}
+      keyExtractor={item => item.id}
+
+      />
   </View>
 );
 
@@ -41,7 +48,8 @@ MainScreen.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  counter: state.score.counter
+  counter: state.score.counter,
+  contentData: state.content.data,
 });
 
 export default connect(mapStateToProps)(MainScreen);

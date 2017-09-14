@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { NavigationActions } from 'react-navigation';
 
 import { AppNavigator, MainNavigator } from '../navigators/AppNavigator';
+import photoContent from '../dbstore/photos.json';
 
 // Start with two routes: The Home screen, with the Main screen on top.
 // Home is the holder to be able to display global modal screens such as the Login screen
@@ -69,10 +70,17 @@ function score(state = scoreInitialState, action) {
   }
 }
 
+const contentInitialState = { data: photoContent };
+
+function content(state = contentInitialState, action) {
+  return state;
+}
+
 const AppReducer = combineReducers({
   nav,
   auth,
   score,
+  content,
 });
 
 export default AppReducer;
