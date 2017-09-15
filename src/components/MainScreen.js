@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+import { StyleSheet, View, Text, Button, FlatList, Image } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 const styles = StyleSheet.create({
@@ -19,6 +19,9 @@ const MainScreen = ({ counter, contentData, dispatch }) => (
       data={contentData}
       renderItem={({ item }) => (
             <View>
+              <Image
+                style={{width: 50, height: 50}}
+                source={{uri: item.thumbnailUrl }}/>
               <Text>{item.title}</Text>
             </View>
           )}
