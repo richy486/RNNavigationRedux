@@ -29,6 +29,8 @@ react-native run-android
 ```
 (You must have an android emulator running or a device connected)
 
+You can also run `npm start` in the project folder and `react-native run-X` will use the manually started instance instead of spiing up it's own.
+
 ## Logging
 
 ```shell
@@ -50,3 +52,5 @@ react-native log-ios | grep -v nw_connection_get_connected_socket_block_invoke
 ```
 
 or install and run [react-devtools](https://github.com/facebook/react-devtools/blob/master/packages/react-devtools/README.md)
+
+If you run into problems and need to clear the npm cache, restart the npm server with `npm start -- --reset-cache`
