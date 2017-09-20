@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Text, Button, FlatList, Image, ImageBackground } from 'react-native';
+import { StyleSheet, View, Text, Button, FlatList, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 const styles = StyleSheet.create({
@@ -13,19 +13,17 @@ const styles = StyleSheet.create({
   },
 });
 
-          // onPressItem={console.log("*** on press item ***")}
-          // selected={console.log("*:* on select item *:*")}
-// onPress={() => {
-//             this.setState({
-//               type: 'other'
-//             });
-//           }}
 const MainScreen = ({ counter, contentData, dispatch }) => (
   <View style={styles.container}>
     <FlatList
       data={contentData}
       renderItem={({ item }) => (
-        <View style={{height: 200 }}>
+        <TouchableOpacity 
+          onPress={() => {
+            console.log("### Tap!!")
+            dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
+          }}
+          style={{height: 200 }}>
           <ImageBackground
             style={{
               flex: 1,
@@ -35,18 +33,12 @@ const MainScreen = ({ counter, contentData, dispatch }) => (
             >
             <Text style={{ backgroundColor: 'transparent' }}>{item.title}</Text>
           </ImageBackground> 
-        </View>
+        </TouchableOpacity>
       )}
       keyExtractor={item => item.id}
     />
   </View>
 );
-
-// , flexDirection: 'row'
-
-// onPress={() =>
-//               dispatch(NavigationActions.navigate({ routeName: 'Detail' }))
-//             }
 
 MainScreen.navigationOptions = props => {
   const { navigation } = props;
